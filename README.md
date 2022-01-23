@@ -26,6 +26,7 @@ Ensure that it points to the database instance in the other container you just d
 ## Build and Run your container
             docker-compose build
 The following will actually run the containers in the app.
+
             docker-compose up
 
 To finish creating the app, create the database like you would for any Rails application.
