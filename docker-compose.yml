@@ -1,0 +1,10 @@
+# Use the file format compatible with Docker Compose 3.8
+version: "3.8"
+
+# Each thing that Docker Compose runs is referred to as
+# a "service". In our case, our Rails application is one
+# service ("web") and our PostgreSQL database instance
+# is another service ("database").
+services:
+   # Use the postgres 11.5 base image for this container.
+    image: postgres:11.5
