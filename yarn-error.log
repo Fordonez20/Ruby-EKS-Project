@@ -1,0 +1,35 @@
+Arguments: 
+  /usr/bin/node /usr/share/yarn/bin/yarn.js add –check-files
+
+PATH: 
+  /usr/local/bundle/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+
+Yarn version: 
+  1.22.17
+
+Node version: 
+  10.24.0
+
+Platform: 
+  linux x64
+
+Trace: 
+  TypeError [ERR_UNESCAPED_CHARACTERS]: https://registry.yarnpkg.com/–check-files: Request path contains unescaped characters
+      at new ClientRequest (_http_client.js:116:13)
+      at Object.request (https.js:289:10)
+      at Request.module.exports.Request.start (/usr/share/yarn/lib/cli.js:141445:32)
+      at Request.module.exports.Request.end (/usr/share/yarn/lib/cli.js:142204:10)
+      at end (/usr/share/yarn/lib/cli.js:141258:14)
+      at Immediate.<anonymous> (/usr/share/yarn/lib/cli.js:141272:7)
+      at runCallback (timers.js:705:18)
+      at tryOnImmediate (timers.js:676:5)
+      at processImmediate (timers.js:658:5)
+
+npm manifest: 
+  No manifest
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

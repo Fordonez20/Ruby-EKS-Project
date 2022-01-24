@@ -4,7 +4,13 @@ A Ruby on Rails Project application deployed using EKS (Kubernetes) and Dockeriz
 ## Step 1 Containerize your Rails Application
 Clone Rails application
 
-git clone git@github.com:jasonswett/boats.git
+            git clone git@github.com:jasonswett/boats.git
+
+Make sure you have Rails installed
+            rails --version
+            sudo gem install rails
+
+
 
 ## Use a Dockerfile to create an image
 
@@ -38,3 +44,32 @@ docker-compose run web --> runs commands inside the specified container
 You can open http://localhost:3000 to see your Dockerized Rails application running in the browser.
             open http://localhost:3000
 
+## Start Here if you have a Containerized Rails Application already
+
+## Generate a Kubernetes Secret
+                bundle exec rake secret
+                echo -n "sercet key"
+Create a YAML file of the secret and save it
+                apiVersion: v1
+                kind: Secret
+                metadata:
+                name: railsapp-secrets
+                type: Opaque
+                data:
+                secret-key-base:            OGQ0MjhlOWQyN2UzMzIzZjFiMWVjMDA4OTQ4MjAxNzQ4MDIyNGM5OTg0ZmMxMDMyN2Y5NWIwOTkwZWM0NjE3NWQ0M2Q3NTZmZDY0NGMzYmNhMzcwM2EzMzdhOTRjZWQ2OWM4NjhhYjA0NzBhYzIwMWNkMWI2YTgwYzNmODllNGE=
+                database-url: bXlzcWw6Ly9kZXBsb3k6c2VjcmV0QDEyNy4wLjAuMS90b2Rv
+
+
+## Create a Kubernetes Deployment File that contains an image and uses secret keys
+Named this file railsapp_deployment.yaml. This file will describe the kubernetes pods and the associated services. We are adding a LoadBalancer Service.
+
+## Installations Needed, Minikube and kubectl
+
+## Creation and Status Commands
+                kubectl create -f railsapp_secrets.yaml
+                kubectl create -f railsapp_deployment.yaml
+                kubectl create -f railsapp_service.yaml
+                kubectl get secrets
+                kubectl get deployments,pods
+                kubectl get services
+                minikube ip

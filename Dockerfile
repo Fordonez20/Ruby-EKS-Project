@@ -9,10 +9,14 @@ WORKDIR /code
 
 # Copy all the current application's files into the /code
 # directory.
+
+COPY Gemfile* /code
 COPY . /code
 
+ADD boats/Gemfile /code/Gemfile
 # Run bundle install to install the Ruby dependencies.
-RUN bundle install
+RUN BUNDLE_GEMFILE="boats/Gemfile" bundle install
+
 
 # Install Yarn.
 RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
@@ -25,3 +29,5 @@ RUN yarn install --check-files
 # Set "rails server -b 0.0.0.0" as the command to
 # run when this container starts.
 CMD ["rails", "server", "-b", "0.0.0.0"]
+
+#make this image again
