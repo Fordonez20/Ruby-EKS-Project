@@ -49,7 +49,9 @@ You can open http://localhost:3000 to see your Dockerized Rails application runn
 ## Generate a Kubernetes Secret
                 bundle exec rake secret
                 echo -n "sercet key"
+                
 Create a YAML file of the secret and save it
+
                 apiVersion: v1
                 kind: Secret
                 metadata:
